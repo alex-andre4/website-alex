@@ -84,19 +84,31 @@
         .popup {
             display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #233554;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
+            top: 20px;
+            right: 20px;
+            background: #112240;
+            padding: 20px 30px;
+            border-radius: 8px;
+            border: 2px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(100, 255, 218, 0.1);
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(100, 255, 218, 0.1);
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 1000;
         }
 
-        .popup button {
-            margin-top: 10px;
-            padding: 5px 10px;
-            cursor: pointer;
+        .popup p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .popup.fade-out {
+            opacity: 0;
         }
     </style>
 </head>
@@ -116,12 +128,11 @@
     </div>
 
     <div id="popup" class="popup">
-        <p>Successfully sent an email!</p>
-        <button onclick="closePopup()">Close</button>
+        <p>Message successfully sent! 🚀</p>
     </div>
 
     <script>
-        document.querySelector(".contact-form").addEventListener("submit", async function(e) {
+            document.querySelector(".contact-form").addEventListener("submit", async function(e) {
             e.preventDefault();
             
             const form = e.target;
@@ -132,16 +143,20 @@
             });
 
             if (response.ok) {
-                document.getElementById("popup").style.display = "block";
+                const popup = document.getElementById("popup");
+                popup.style.display = "block";
+                setTimeout(() => {
+                    popup.classList.add("fade-out");
+                    setTimeout(() => {
+                        popup.style.display = "none";
+                        popup.classList.remove("fade-out");
+                    }, 500);
+                }, 3000);
                 form.reset();
             } else {
                 alert('There was an error sending your message. Please try again.');
             }
         });
-
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
 
         document.querySelector("textarea").addEventListener("input", function() {
             this.style.height = "auto";
