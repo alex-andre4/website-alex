@@ -14,21 +14,35 @@
         }
 
         body {
-            background-color: #0a192f;
-            color: #ffffff;
+            background-color: #FFF5E1;
+            color: #FFF5E1;
+            opacity: 0;
+            animation: fadeIn .5s ease-in forwards;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .header {
-            text-align: center;
-            padding: 100px 20px;
-            border-bottom: 1px solid #233554;
+            padding: 50px 20px;
         }
 
         .name {
             font-size: 4em;
             margin-bottom: 20px;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.323);
+            color: #4A4A4A;
+            font-weight: 300;
         }
 
         .nav-buttons {
@@ -42,57 +56,36 @@
         .btn {
             padding: 15px 30px;
             background-color: transparent;
-            border: 2px solid #ffffff;
-            color: #ffffff;
+            border: 2px solid #4A4A4A;
+            color: #4A4A4A;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease-in-out;
+        }
+
+        .btn:hover::after {
+            left: 0;
         }
 
         .btn:hover {
-            background-color: #b6b6b6;
-            color: #0a192f;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-        }
-
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .project-card {
-            background-color: #112240;
-            padding: 30px;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            background-color: #112240;
-            border: 1px solid #233554;
-            color: #ffffff;
+            color: #fff;
+            background-color: #4A4A4A;
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -111,7 +104,6 @@
             <a href="contact.html" class="btn"><i class="fas fa-envelope"></i> Contact</a>
         </div>
     </header>
-
 
     <script>
         // Add smooth scrolling for navigation buttons
