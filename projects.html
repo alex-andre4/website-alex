@@ -39,7 +39,22 @@
             margin: 20px auto;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 40px;
+        }
+
+        .project-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Kept as per your latest HTML */
+        }
+
+        .group-title {
+            font-size: 2.2em;
+            color: #4A4A4A;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4A4A4A;
+            padding-bottom: 5px;
         }
 
         .project-card {
@@ -63,6 +78,7 @@
             margin-bottom: 15px;
             border-bottom: 1px solid #FFF5E1;
             padding-bottom: 10px;
+            cursor: pointer;
         }
 
         .project-title {
@@ -125,6 +141,40 @@
             transform: scale(1.05);
         }
 
+        /* Dropdown Styling */
+        details {
+            margin-bottom: 20px;
+        }
+
+        summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 10px 0;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #FFF5E1;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "\25BC"; /* Down arrow */
+            font-size: 1em;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg); /* Up arrow when open */
+        }
+
+        .project-details {
+            padding-top: 10px;
+        }
+
         @media (max-width: 768px) {
             .title {
                 font-size: 2.5em;
@@ -133,6 +183,10 @@
             .project-header {
                 flex-direction: column;
                 gap: 5px;
+            }
+
+            .group-title {
+                font-size: 1.8em;
             }
         }
     </style>
@@ -143,69 +197,127 @@
     </header>
 
     <div class="project-container">
-        <div class="project-card">
-            <div class="project-header">
-                <h2 class="project-title">Database Management System</h2>
-                <span class="project-date">March 2025</span>
+        <!-- Security & Exploitation Group -->
+        <div class="project-group">
+            <h2 class="group-title">Security & Exploitation</h2>
+            <div class="project-card">
+                <details>
+                    <summary class="project-header">
+                        <span class="project-title">PCAP Analysis with Wireshark</span>
+                        <span class="project-date">March 2025</span>
+                    </summary>
+                    <div class="project-details">
+                        <p class="project-tech">Technologies: <span class="tech-highlight">Wireshark, Linux, Network Protocols</span></p>
+                        <div class="project-description">
+                            <ul>
+                                <li>Analyzed a PCAP file (<span class="tech-highlight">hp_challen.pcap</span>) to investigate a malicious pcap file for the assignment.</li>
+                                <li>Identified a <span class="tech-highlight">brute force attack</span> on SSH using Hydra, with 52 failed attempts, by filtering and examining SSH traffic patterns.</li>
+                                <li>Detected malware installation via HTTP traffic, uncovering 9 base64-encoded BMP files downloaded with wget, and traced attacker behavior.</li>
+                                <li>Applied packet analysis to reveal protocol usage (SSHv2, TCP, HTTP), assess network security, and propose defenses like rate limiting and MFA.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
             </div>
-            <p class="project-tech">Technologies: <span class="tech-highlight">MySQL, Python, SQL, ER Modeling</span></p>
-            <div class="project-description">
-                <ul>
-                    <li>Designed and implemented a <span class="tech-highlight">comprehensive database system</span> from scratch, earning a perfect score (100%) on the final project.</li>
-                    <li>Created a complex database schema with 8+ related tables containing over 400 data rows, visualized through detailed ER diagrams.</li>
-                    <li>Developed advanced SQL queries including joins, subqueries, aggregations, and demonstrated mastery of database modification operations with proper constraint handling.</li>
-                    <li>Built a functional Python front-end interface that allowed dynamic query execution with user input parameters, connecting application logic to the database layer.</li>
-                </ul>
+
+            <div class="project-card">
+                <details>
+                    <summary class="project-header">
+                        <span class="project-title">Buffer Overflow Attack Lab</span>
+                        <span class="project-date">October 2024</span>
+                    </summary>
+                    <div class="project-details">
+                        <p class="project-tech">Technologies: <span class="tech-highlight">C, GDB, Objdump, x86-64 Assembly</span></p>
+                        <div class="project-description">
+                            <ul>
+                                <li>Completed five phases of buffer overflow attacks on custom-generated vulnerable programs (<span class="tech-highlight">CTARGET and RTARGET</span>), achieving a full score of 100 points.</li>
+                                <li>Executed code-injection attacks by crafting exploit strings with a <span class="tech-highlight">no-op sled</span> to ensure reliable execution of injected code, redirecting program flow to predefined functions.</li>
+                                <li>Performed return-oriented programming (ROP) attacks using gadgets from the gadget farm, overcoming stack randomization and non-executable memory protections.</li>
+                                <li>Utilized GDB and Objdump to disassemble and debug x86-64 machine code, mastering stack frame analysis and parameter-passing mechanisms.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="project-card">
+                <details>
+                    <summary class="project-header">
+                        <span class="project-title">Binary Bomb Defusal Lab</span>
+                        <span class="project-date">September - October 2024</span>
+                    </summary>
+                    <div class="project-details">
+                        <p class="project-tech">Technologies: <span class="tech-highlight">C, GDB, Objdump, Assembly</span></p>
+                        <div class="project-description">
+                            <ul>
+                                <li>Defused a unique binary bomb with six phases, each requiring precise input strings to avoid explosion, earning a maximum score of 70 points.</li>
+                                <li>Used <span class="tech-highlight">GDB to disassemble</span> and step through the bomb’s assembly code, identifying control flow and string comparison logic to determine correct inputs.</li>
+                                <li>Applied debugging techniques such as setting breakpoints and examining registers/memory to reverse-engineer the bomb’s behavior without source code access.</li>
+                                <li>Developed a solution file (psol.txt) to automate phase defusal, minimizing penalties from incorrect guesses and mastering low-level program analysis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="project-card">
+                <details>
+                    <summary class="project-header">
+                        <span class="project-title">Password Security & Hash Cracking</span>
+                        <span class="project-date">February 2025</span>
+                    </summary>
+                    <div class="project-details">
+                        <p class="project-tech">Technologies: <span class="tech-highlight">Hashcat, John the Ripper, Linux, Cryptography</span></p>
+                        <div class="project-description">
+                            <ul>
+                                <li>Conducted <span class="tech-highlight">password hash analysis</span> using industry-standard tools like Hashcat and John the Ripper to demonstrate password vulnerability assessment techniques.</li>
+                                <li>Successfully identified and cracked multiple hash types (MD5, SHA1, SHA256, NTLM, BCrypt) using dictionary attacks and specialized cracking methodologies.</li>
+                                <li>Performed comparative analysis between different password cracking tools, evaluating their functionality, speed, and effectiveness for various security testing scenarios.</li>
+                                <li>Documented legitimate cybersecurity use cases for password cracking tools in penetration testing and account recovery situations, emphasizing ethical applications.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-header">
-                <h2 class="project-title">Password Security & Hash Cracking</h2>
-                <span class="project-date">February 2025</span>
-            </div>
-            <p class="project-tech">Technologies: <span class="tech-highlight">Hashcat, John the Ripper, Linux, Cryptography</span></p>
-            <div class="project-description">
-                <ul>
-                    <li>Conducted <span class="tech-highlight">password hash analysis</span> using industry-standard tools like Hashcat and John the Ripper to demonstrate password vulnerability assessment techniques.</li>
-                    <li>Successfully identified and cracked multiple hash types (MD5, SHA1, SHA256, NTLM, BCrypt) using dictionary attacks and specialized cracking methodologies.</li>
-                    <li>Performed comparative analysis between different password cracking tools, evaluating their functionality, speed, and effectiveness for various security testing scenarios.</li>
-                    <li>Documented legitimate cybersecurity use cases for password cracking tools in penetration testing and account recovery situations, emphasizing ethical applications.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-header">
-                <h2 class="project-title">Game Enhancement Tools</h2>
-                <span class="project-date">January 2025 - Present</span>
-            </div>
-            <p class="project-tech">Technologies: <span class="tech-highlight">C#, C++</span></p>
-            <div class="project-description">
-                <ul>
-                    <li>Developed cheats for Counter-Strike 2 by <span class="tech-highlight">dumping the game's memory</span> to gather information on player and entity locations, enabling features like ESP to visualize player positions through walls.</li>
-                    <li>Implemented an aimbot and triggerbot by cycling through entity lists, allowing for automated targeting and firing when enemies are in view.</li>
-                    <li>Applied reverse engineering techniques to understand game memory structures and offsets.</li>
-                    <li>Created user-friendly interface for configuring enhancement features and parameters.</li>
-                </ul>
+        <!-- Systems & Databases Group -->
+        <div class="project-group">
+            <h2 class="group-title">Systems & Databases</h2>
+            <div class="project-card">
+                <details>
+                    <summary class="project-header">
+                        <span class="project-title">Database Management System</span>
+                        <span class="project-date">March 2025</span>
+                    </summary>
+                    <div class="project-details">
+                        <p class="project-tech">Technologies: <span class="tech-highlight">MySQL, Python, SQL, ER Modeling</span></p>
+                        <div class="project-description">
+                            <ul>
+                                <li>Designed and implemented a <span class="tech-highlight">comprehensive database system</span> from scratch, earning a perfect score (100%) on the final project.</li>
+                                <li>Created a complex database schema with 8+ related tables containing over 400 data rows, visualized through detailed ER diagrams.</li>
+                                <li>Developed advanced SQL queries including joins, subqueries, aggregations, and demonstrated mastery of database modification operations with proper constraint handling.</li>
+                                <li>Built a functional Python front-end interface that allowed dynamic query execution with user input parameters, connecting application logic to the database layer.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-header">
-                <h2 class="project-title">Future Project</h2>
-                <span class="project-date">Coming Soon</span>
-            </div>
-            <p class="project-tech">Technologies: <span class="tech-highlight">Add your technologies here</span></p>
-            <div class="project-description">
-                <ul>
-                    <li>This is a placeholder for your next project. Update this with details about any additional projects you'd like to showcase.</li>
-                    <li>You can easily duplicate the project-card section in the HTML to add more projects as you develop them.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Main</a>
-</body>
-</html>
+        <!-- Gaming & Miscellaneous Group -->
+        <div class="project-group">
+            <h2 class="group-title">Gaming & Miscellaneous</h2>
+            <div class="project-card">
+                <details>
+                    <summary class="project-header">
+                        <span class="project-title">Game Enhancement Tools</span>
+                        <span class="project-date">January 2025 - Present</span>
+                    </summary>
+                    <div class="project-details">
+                        <p class="project-tech">Technologies: <span class="tech-highlight">C#, C++</span></p>
+                        <div class="project-description">
+                            <ul>
+                                <li>Developed cheats for Counter-Strike 2 by <span class="tech-highlight">dumping the game's memory</span> to gather information on player and entity locations, enabling features like ESP to visualize player positions through walls.
+                                <li>Implemented an aimbot and triggerbot by cycling through entity lists, allowing for automated targeting and firing when enemies are in view.</li>
+                                    
