@@ -7,7 +7,6 @@ This portfolio highlights my technical skills and accomplishments through detail
 
     Dynamic Design: Built with HTML, CSS, and JavaScript, featuring dropdown project details and hover animations.
     Real-Time Development: Developed using Visual Studio Code with the Live Server extension for instant previews.
-    Sorting Functionality: A "Sort by Date" button reorders projects within groups by their start date (most recent first).
     Deployment: Hosted on GitHub Pages with a custom domain for a professional touch.
 
 Projects
@@ -33,7 +32,7 @@ To run this website locally:
 
 Deployment
 
-    GitHub Pages: The site is deployed automatically via GitHub Pages from the main branch. Access it at [your-username].github.io/[repository-name] or your custom domain.
+    GitHub Pages: The site is deployed automatically via GitHub Pages from the main branch. Access it at alex-andre4.github.io/website-alex or your custom domain.
     Custom Domain: Configured with Porkbun DNS settings to point to GitHub Pages.
 
 Technologies Used
