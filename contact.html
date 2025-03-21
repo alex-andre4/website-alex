@@ -19,59 +19,93 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            height: 100vh;
-            justify-content: center;
-            padding: 20px;
+            padding: 50px 20px;
         }
-        .contact-section {
-            max-width: 600px;
+        .header {
+            padding: 20px 20px;
         }
-        h1 {
-            font-size: 2.5em;
+        .title {
+            font-size: 4em;
             margin-bottom: 20px;
+            color: #4A4A4A;
+            font-weight: 300;
+        }
+        .contact-container {
+            max-width: 800px;
+            margin: 20px auto 10px; /* Reduced bottom margin from 20px to 10px */
+        }
+        .contact-card {
+            background-color: #4A4A4A;
+            border-radius: 8px;
+            padding: 25px;
+            color: #FFF5E1;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #FFF5E1;
+            padding-bottom: 10px;
         }
         .contact-info {
             font-size: 1.2em;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            margin-bottom: 0; /* Removed the bottom margin entirely from the info section */
         }
-        .btn {
-            display: inline-block;
-            padding: 12px 20px;
+        .contact-info a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .back-btn {
+            margin-top: 20px; /* Reduced from 30px to 20px */
+            padding: 10px 20px;
             background-color: transparent;
             border: 2px solid #4A4A4A;
             color: #4A4A4A;
-            cursor: pointer;
             text-decoration: none;
             border-radius: 5px;
             transition: all 0.3s ease;
-            font-size: 16px;
-            margin-top: 20px;
+            display: inline-block;
         }
-        .btn:hover {
+        .back-btn:hover {
             background-color: #4A4A4A;
-            color: #FFF5E1;
+            color: #FFF;
+            transform: scale(1.05);
         }
-        .resume-link {
-            color: #4A4A4A;
-            font-weight: bold;
-            text-decoration: underline;
-            transition: all 0.3s ease;
-        }
-        .resume-link:hover {
-            color: #6A6A6A;
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5em;
+            }
         }
     </style>
 </head>
 <body>
-    <section class="contact-section">
-        <h1>Contact Alex</h1>
-        <p class="contact-info">
-            <strong>Email:</strong> alexmorales11703@outlook.com<br>
-            <strong>Phone:</strong> 713-458-8451<br>
-            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alexandre-morales-1305321bb/" target="_blank">Alexandre Morales</a><br>
-            <!-- <strong>Resume:</strong> <a href="YOUR_RESUME_URL_HERE" target="_blank" class="resume-link">Download Resume</a> -->
-        </p>
-        <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Main</a>
-    </section>
+    <header class="header">
+        <h1 class="title">Contact Me</h1>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-card">
+            <h2 class="contact-title">Alexandre Morales</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> alexmorales11703@outlook.com</p>
+                <p><strong>Phone:</strong> 713-458-8451</p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alexandre-morales-1305321bb/" target="_blank">Alexandre Morales</a></p>
+                <!-- <p><strong>Resume:</strong> <a href="YOUR_RESUME_URL_HERE" target="_blank">Download Resume</a></p> -->
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Main</a>
 </body>
 </html>

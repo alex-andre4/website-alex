@@ -181,8 +181,51 @@
 
         <div class="section" id="skills">
             <h2>Skills</h2>
-            <p>ISC2 CC Certification (Active), C#, C++, MySQL, Python, Microsoft Azure, Linux, GDB C Debugging, SQL, Penetration Testing, Game Development</p>
+            <ul class="skills-list">
+                <li><i class="fas fa-shield-alt"></i> ISC2 CC Certification (Active)</li>
+                <li><i class="fab fa-microsoft"></i> C#</li>
+                <li><i class="fas fa-code"></i> C++</li>
+                <li><i class="fas fa-database"></i> MySQL</li>
+                <li><i class="fab fa-python"></i> Python</li>
+                <li><i class="fab fa-microsoft"></i> Microsoft Azure</li>
+                <li><i class="fab fa-linux"></i> Linux</li>
+                <li><i class="fas fa-bug"></i> GDB C Debugging</li>
+                <li><i class="fas fa-table"></i> SQL</li>
+                <li><i class="fas fa-user-secret"></i> Penetration Testing</li>
+                <li><i class="fas fa-gamepad"></i> Game Development</li>
+            </ul>
+            <style>
+                .skills-list {
+                    list-style-type: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    justify-content: center;
+                    padding: 0;
+                }
+                
+                .skills-list li {
+                    background-color: #4A4A4A;
+                    color: #FFF5E1;
+                    padding: 10px 15px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    transition: transform 0.3s ease;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                }
+                
+                .skills-list li:hover {
+                    transform: translateY(-3px);
+                }
+                
+                .skills-list i {
+                    margin-right: 8px;
+                    color: #FFD700;
+                }
+            </style>
         </div>
+        
     </div>
 
     <div class="nav-buttons">
