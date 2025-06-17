@@ -14,7 +14,6 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: #000000;
         }
 
         body {
@@ -24,6 +23,7 @@
             min-height: 100vh;
             font-weight: 400;
             letter-spacing: -0.01em;
+            color: #2c3e50;
         }
 
         .nav-header {
@@ -78,10 +78,105 @@
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: breathe 5s ease-in-out forwards;
+        }
+
+        .name::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            animation: shimmer 5s ease-in-out forwards;
+            z-index: 1;
+        }
+
+        .name::after {
+            content: "Alexandre Morales";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                #667eea,
+                #764ba2,
+                #f093fb,
+                #f5576c,
+                #4facfe,
+                #00f2fe
+            );
+            background-size: 400% 400%;
+            background-position: 75% 25%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease-in-out forwards;
+            z-index: 2;
+        }
+
+        @keyframes breathe {
+            0% {
+                transform: scale(1);
+                filter: blur(0px);
+            }
+            50% {
+                transform: scale(1.02);
+                filter: blur(0.5px);
+            }
+            100% {
+                transform: scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+            25% {
+                opacity: 1;
+            }
+            50% {
+                left: 100%;
+                opacity: 0;
+            }
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 50% 75%;
+            }
+            100% {
+                background-position: 75% 25%;
+            }
         }
 
         .subtitle {
@@ -150,6 +245,7 @@
     <nav class="nav-header">
         <a href="index.html" class="nav-logo">Alexandre Morales</a>
         <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
             <a href="about.html" class="nav-link">About Me</a>
             <a href="projects.html" class="nav-link">Projects</a>
             <a href="contact.html" class="nav-link">Contact</a>
@@ -158,7 +254,7 @@
 
     <div class="main-content">
         <h1 class="name">Alexandre Morales</h1>
-        <p class="subtitle">Cybersecurity Student & Developer</p>
+        <p class="subtitle">Computer Science Student & Developer</p>
         <div class="nav-buttons">
             <a href="about.html" class="btn"><i class="fas fa-user"></i> About Me</a>
             <a href="projects.html" class="btn"><i class="fas fa-code"></i> Projects</a>
