@@ -5,107 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Alex</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', monospace;
+            font-family: 'Space Grotesk', sans-serif;
         }
+
         body {
-            background-color: #FFF5E1;
-            color: #4A4A4A;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #000000;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #555;
+        }
+
+        .main-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             padding: 50px 20px;
         }
-        .header {
-            padding: 20px 20px;
-        }
+
         .title {
             font-size: 4em;
-            margin-bottom: 20px;
-            color: #4A4A4A;
+            margin-bottom: 40px;
+            color: #000000;
             font-weight: 300;
         }
+
         .contact-container {
-            max-width: 800px;
-            margin: 20px auto 10px; /* Reduced bottom margin from 20px to 10px */
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
         }
+
         .contact-card {
-            background-color: #4A4A4A;
-            border-radius: 8px;
-            padding: 25px;
-            color: #FFF5E1;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 40px;
+            color: #2c3e50;
             text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
+
         .contact-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
         }
+
         .contact-title {
-            font-size: 1.8em;
+            font-size: 2em;
             font-weight: bold;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #FFF5E1;
-            padding-bottom: 10px;
-        }
-        .contact-info {
-            font-size: 1.2em;
-            line-height: 1.8;
-            margin-bottom: 0; /* Removed the bottom margin entirely from the info section */
-        }
-        .contact-info a {
-            color: #FFD700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        .back-btn {
-            margin-top: 20px; /* Reduced from 30px to 20px */
-            padding: 10px 20px;
-            background-color: transparent;
-            border: 2px solid #4A4A4A;
-            color: #4A4A4A;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
             display: inline-block;
         }
-        .back-btn:hover {
-            background-color: #4A4A4A;
-            color: #FFF;
-            transform: scale(1.05);
+
+        .contact-info {
+            font-size: 1.1em;
+            line-height: 2;
+            margin-bottom: 0;
         }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: #3498db;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .contact-info strong {
+            color: #34495e;
+            min-width: 80px;
+            display: inline-block;
+        }
+
         @media (max-width: 768px) {
+            .nav-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
             .title {
                 font-size: 2.5em;
+            }
+
+            .contact-card {
+                padding: 30px 20px;
+            }
+
+            .contact-title {
+                font-size: 1.6em;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 class="title">Contact Me</h1>
-    </header>
+    <nav class="nav-header">
+        <a href="index.html" class="nav-logo">Alexandre Morales</a>
+        <div class="nav-links">
+            <a href="about.html" class="nav-link">About Me</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
 
-    <div class="contact-container">
-        <div class="contact-card">
-            <h2 class="contact-title">Alexandre Morales</h2>
-            <div class="contact-info">
-                <p><strong>Email:</strong> alexmorales11703@outlook.com</p>
-                <p><strong>Phone:</strong> 713-458-8451</p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alexandre-morales-1305321bb/" target="_blank">Alexandre Morales</a></p>
-                <!-- <p><strong>Resume:</strong> <a href="YOUR_RESUME_URL_HERE" target="_blank">Download Resume</a></p> -->
+    <div class="main-content">
+        <h1 class="title">Contact Me</h1>
+
+        <div class="contact-container">
+            <div class="contact-card">
+                <h2 class="contact-title">Alexandre Morales</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i><strong>Email:</strong> <a href="mailto:alexmorales11703@outlook.com">alexmorales11703@outlook.com</a></p>
+                    <p><i class="fas fa-phone"></i><strong>Phone:</strong> <a href="tel:713-458-8451">713-458-8451</a></p>
+                    <p><i class="fab fa-linkedin"></i><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alexandre-morales-1305321bb/" target="_blank">Alexandre Morales</a></p>
+                </div>
             </div>
         </div>
     </div>
-
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Main</a>
 </body>
 </html>

@@ -7,91 +7,163 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Alex - Cybersecurity Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', monospace;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #000000;
         }
 
         body {
-            background-color: #FFF5E1;
-            color: #4A4A4A;
-            opacity: 0;
-            animation: fadeIn .5s ease-in forwards;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-link:hover {
+            color: #3498db;
+        }
+
+        .main-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 50px 20px;
-            height: 100vh;
-            justify-content: center;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .header {
-            padding: 20px 20px;
         }
 
         .name {
-            font-size: 4em;
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5em;
+            font-weight: 700;
             margin-bottom: 20px;
-            color: #4A4A4A;
-            font-weight: 300;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #34495e;
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
         }
 
         .nav-buttons {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             margin-top: 30px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 15px 30px;
+            padding: 16px 32px;
             background-color: transparent;
-            border: 2px solid #4A4A4A;
-            color: #4A4A4A;
+            border: 2px solid #dee2e6;
+            color: #2c3e50;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 0.95em;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn:hover {
-            color: #fff;
-            background-color: #4A4A4A;
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            background-color: #3498db;
+            border-color: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn i {
+            font-size: 1.1em;
         }
 
         @media (max-width: 768px) {
+            .nav-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
             .name {
-                font-size: 2.5em;
+                font-size: 3em;
+            }
+
+            .btn {
+                padding: 14px 24px;
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <nav class="nav-header">
+        <a href="index.html" class="nav-logo">Alexandre Morales</a>
+        <div class="nav-links">
+            <a href="about.html" class="nav-link">About Me</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
         <h1 class="name">Alexandre Morales</h1>
+        <p class="subtitle">Cybersecurity Student & Developer</p>
         <div class="nav-buttons">
             <a href="about.html" class="btn"><i class="fas fa-user"></i> About Me</a>
             <a href="projects.html" class="btn"><i class="fas fa-code"></i> Projects</a>
             <a href="contact.html" class="btn"><i class="fas fa-envelope"></i> Contact</a>
         </div>
-    </header>
+    </div>
 </body>
 </html>

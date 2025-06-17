@@ -5,376 +5,257 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex's Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', monospace;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         body {
-            background-color: #FFF5E1;
-            color: #4A4A4A;
+            background-color: #ffffff;
+            color: #000000;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #555;
+        }
+
+        .main-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 50px 20px;
+            padding: 20px;
         }
 
         .header {
-            padding: 20px 20px;
+            margin-bottom: 40px;
         }
 
         .title {
-            font-size: 4em;
-            margin-bottom: 20px;
-            color: #4A4A4A;
-            font-weight: 300;
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .category-header {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 40px 0 20px;
+            text-align: left;
+            width: 100%;
+            max-width: 1200px;
         }
 
         .project-container {
-            max-width: 800px;
-            margin: 20px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .project-group {
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px; /* Kept as per your latest HTML */
-        }
-
-        .group-title {
-            font-size: 2.2em;
-            color: #4A4A4A;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #4A4A4A;
-            padding-bottom: 5px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
         }
 
         .project-card {
-            background-color: #4A4A4A;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 25px;
-            color: #FFF5E1;
-            text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .project-header {
+        .project-image {
+            width: 100%;
+            height: 150px;
+            background-color: #ccc;
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #FFF5E1;
-            padding-bottom: 10px;
-            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: #666;
+        }
+
+        .project-content {
+            padding: 20px;
         }
 
         .project-title {
-            font-size: 1.8em;
+            font-size: 1.5em;
             font-weight: bold;
-        }
-
-        .project-date {
-            font-size: 1em;
-            font-style: italic;
-        }
-
-        .project-tech {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .tech-highlight {
-            font-weight: bold;
-            color: #FFD700;
+            margin-bottom: 10px;
         }
 
         .project-description {
-            margin-bottom: 20px;
-        }
-
-        .project-description ul {
-            list-style-type: none;
-            margin-left: 0;
-        }
-
-        .project-description li {
+            font-size: 1em;
+            color: #333;
             margin-bottom: 15px;
-            position: relative;
-            padding-left: 1.5em;
-            line-height: 1.5;
         }
 
-        .project-description li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #FFD700;
-        }
-
-        .back-btn {
-            margin-top: 30px;
+        .project-link {
+            display: inline-block;
             padding: 10px 20px;
-            background-color: transparent;
-            border: 2px solid #4A4A4A;
-            color: #4A4A4A;
+            background-color: #000000;
+            color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
-        .back-btn:hover {
-            background-color: #4A4A4A;
-            color: #FFF;
-            transform: scale(1.05);
-        }
-
-        /* Dropdown Styling */
-        details {
-            margin-bottom: 20px;
-        }
-
-        summary {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 10px 0;
-            cursor: pointer;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #FFF5E1;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::after {
-            content: "\25BC"; /* Down arrow */
-            font-size: 1em;
-            transition: transform 0.3s ease;
-        }
-
-        details[open] summary::after {
-            transform: rotate(180deg); /* Up arrow when open */
-        }
-
-        .project-details {
-            padding-top: 10px;
+        .project-link:hover {
+            background-color: #444444;
         }
 
         @media (max-width: 768px) {
+            .nav-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
             .title {
                 font-size: 2.5em;
             }
-            
-            .project-header {
-                flex-direction: column;
-                gap: 5px;
-            }
 
-            .group-title {
-                font-size: 1.8em;
+            .project-card {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 class="title">My Projects</h1>
-    </header>
-
-    <div class="project-container">
-        <!-- Security & Exploitation Group -->
-        <div class="project-group">
-            <h2 class="group-title">Security & Exploitation</h2>
-
-            <div class="project-card">
-                <details>
-                    <summary class="project-header">
-                        <span class="project-title">Password Security & Hash Cracking</span>
-                        <span class="project-date">February 2025</span>
-                    </summary>
-                    <div class="project-details">
-                        <p class="project-tech">Technologies: <span class="tech-highlight">Hashcat, John the Ripper, Linux, Cryptography</span></p>
-                        <div class="project-description">
-                            <ul>
-                                <li>Conducted <span class="tech-highlight">password hash analysis</span> using industry-standard tools like Hashcat and John the Ripper to demonstrate password vulnerability assessment techniques.</li>
-                                <li>Successfully identified and cracked multiple hash types (MD5, SHA1, SHA256, NTLM, BCrypt) using dictionary attacks and specialized cracking methodologies.</li>
-                                <li>Performed comparative analysis between different password cracking tools, evaluating their functionality, speed, and effectiveness for various security testing scenarios.</li>
-                                <li>Documented legitimate cybersecurity use cases for password cracking tools in penetration testing and account recovery situations, emphasizing ethical applications.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
-            </div>
-
-            <div class="project-card">
-                <details>
-                    <summary class="project-header">
-                        <span class="project-title">PCAP Analysis with Wireshark</span>
-                        <span class="project-date">November 2024</span>
-                    </summary>
-                    <div class="project-details">
-                        <p class="project-tech">Technologies: <span class="tech-highlight">Wireshark, Linux, Network Protocols</span></p>
-                        <div class="project-description">
-                            <ul>
-                                <li>Analyzed a PCAP file (<span class="tech-highlight">hp_challen.pcap</span>) to investigate a VM crash, achieving a perfect score of 100 points as a SOC analyst.</li>
-                                <li>Identified a <span class="tech-highlight">brute force attack</span> on SSH using Hydra, with 52 failed attempts, by filtering and examining SSH traffic patterns.</li>
-                                <li>Detected malware installation via HTTP traffic, uncovering 9 base64-encoded BMP files downloaded with wget, and traced attacker behavior.</li>
-                                <li>Applied packet analysis to reveal protocol usage (SSHv2, TCP, HTTP), assess network security, and propose defenses like rate limiting and MFA.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
-            </div>
-
-            <div class="project-card">
-                <details>
-                    <summary class="project-header">
-                        <span class="project-title">Buffer Overflow Attack Lab</span>
-                        <span class="project-date">October 2024</span>
-                    </summary>
-                    <div class="project-details">
-                        <p class="project-tech">Technologies: <span class="tech-highlight">C, GDB, Objdump, x86-64 Assembly</span></p>
-                        <div class="project-description">
-                            <ul>
-                                <li>Completed five phases of buffer overflow attacks on custom-generated vulnerable programs (<span class="tech-highlight">CTARGET and RTARGET</span>), achieving a full score of 100 points.</li>
-                                <li>Executed code-injection attacks by crafting exploit strings with a <span class="tech-highlight">no-op sled</span> to ensure reliable execution of injected code, redirecting program flow to predefined functions.</li>
-                                <li>Performed return-oriented programming (ROP) attacks using gadgets from the gadget farm, overcoming stack randomization and non-executable memory protections.</li>
-                                <li>Utilized GDB and Objdump to disassemble and debug x86-64 machine code, mastering stack frame analysis and parameter-passing mechanisms.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
-            </div>
-
-            <div class="project-card">
-                <details>
-                    <summary class="project-header">
-                        <span class="project-title">Binary Bomb Defusal Lab</span>
-                        <span class="project-date">September 2024</span>
-                    </summary>
-                    <div class="project-details">
-                        <p class="project-tech">Technologies: <span class="tech-highlight">C, GDB, Objdump, Assembly</span></p>
-                        <div class="project-description">
-                            <ul>
-                                <li>Defused a unique binary bomb with six phases, each requiring precise input strings to avoid explosion, earning a maximum score of 70 points.</li>
-                                <li>Used <span class="tech-highlight">GDB to disassemble</span> and step through the bomb’s assembly code, identifying control flow and string comparison logic to determine correct inputs.</li>
-                                <li>Applied debugging techniques such as setting breakpoints and examining registers/memory to reverse-engineer the bomb’s behavior without source code access.</li>
-                                <li>Developed a solution file (psol.txt) to automate phase defusal, minimizing penalties from incorrect guesses and mastering low-level program analysis.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
-            </div>
-
-            
+    <nav class="nav-header">
+        <a href="index.html" class="nav-logo">Alexandre Morales</a>
+        <div class="nav-links">
+            <a href="about.html" class="nav-link">About Me</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
         </div>
+    </nav>
 
-        <!-- Systems & Databases Group -->
-        <div class="project-group">
-            <h2 class="group-title">Systems & Databases</h2>
+    <div class="main-content">
+        <header class="header">
+            <h1 class="title">My Projects</h1>
+            <p class="subtitle">A showcase of my work and accomplishments</p>
+        </header>
+
+        <!-- Security & Exploitation -->
+        <h2 class="category-header">Security & Exploitation</h2>
+        <div class="project-container">
             <div class="project-card">
-                <details>
-                    <summary class="project-header">
-                        <span class="project-title">Database Management System</span>
-                        <span class="project-date">March 2025</span>
-                    </summary>
-                    <div class="project-details">
-                        <p class="project-tech">Technologies: <span class="tech-highlight">MySQL, Python, SQL, ER Modeling</span></p>
-                        <div class="project-description">
-                            <ul>
-                                <li>Designed and implemented a <span class="tech-highlight">comprehensive database system</span> from scratch, earning a perfect score (100%) on the final project.</li>
-                                <li>Created a complex database schema with 8+ related tables containing over 400 data rows, visualized through detailed ER diagrams.</li>
-                                <li>Developed advanced SQL queries including joins, subqueries, aggregations, and demonstrated mastery of database modification operations with proper constraint handling.</li>
-                                <li>Built a functional Python front-end interface that allowed dynamic query execution with user input parameters, connecting application logic to the database layer.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
+                <div class="project-image">Image</div>
+                <div class="project-content">
+                    <h2 class="project-title">Password Security & Hash Cracking</h2>
+                    <p class="project-description">Conducted password hash analysis using tools like Hashcat and John the Ripper to demonstrate security vulnerabilities. <strong>February 2025</strong></p>
+                    <a href="https://github.com/example/another-project" class="project-link" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Image</div>
+                <div class="project-content">
+                    <h2 class="project-title">PCAP Analysis with Wireshark</h2>
+                    <p class="project-description">Analyzed network traffic using Wireshark to identify anomalies and security threats. <strong>November 2024</strong></p>
+                    <a href="https://github.com/example/pcap-analysis" class="project-link" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Image</div>
+                <div class="project-content">
+                    <h2 class="project-title">Buffer Overflow Attack Lab</h2>
+                    <p class="project-description">Performed buffer overflow attacks in a controlled environment to understand vulnerabilities. <strong>October 2024</strong></p>
+                    <a href="https://github.com/example/buffer-overflow" class="project-link" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Image</div>
+                <div class="project-content">
+                    <h2 class="project-title">Binary Bomb Defusal Lab</h2>
+                    <p class="project-description">Defused binary bombs by analyzing assembly code and debugging techniques. <strong>September 2024</strong></p>
+                    <a href="https://github.com/example/binary-bomb" class="project-link" target="_blank">View on GitHub</a>
+                </div>
             </div>
         </div>
 
-        <!-- Gaming & Miscellaneous Group -->
-        <div class="project-group">
-            <h2 class="group-title">Gaming & Miscellaneous</h2>
-
+        <!-- Systems & Databases -->
+        <h2 class="category-header">Systems & Databases</h2>
+        <div class="project-container">
             <div class="project-card">
-                <details>
-                    <summary class="project-header">
-                        <span class="project-title">Video Game Enhancement Tools</span>
-                        <span class="project-date">January 2025 - Present</span>
-                    </summary>
-                    <div class="project-details">
-                        <p class="project-tech">Technologies: <span class="tech-highlight">C#, C++</span></p>
-                        <div class="project-description">
-                            <ul>
-                                <li>Developed cheats for Counter-Strike 2 by <span class="tech-highlight">dumping the game's memory</span> to gather information on player and entity locations, enabling features like ESP to visualize player positions through walls.</li>
-                                <li>Implemented an aimbot and triggerbot by cycling through entity lists, allowing for automated targeting and firing when enemies are in view.</li>
-                                <li>Applied reverse engineering techniques to understand game memory structures and offsets.</li>
-                                <li>Created user-friendly interface for configuring enhancement features and parameters.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
+                <div class="project-image">Image</div>
+                <div class="project-content">
+                    <h2 class="project-title">Database Management System</h2>
+                    <p class="project-description">Designed and implemented a database management system for efficient data storage and retrieval. <strong>March 2025</strong></p>
+                    <a href="https://github.com/example/dbms" class="project-link" target="_blank">View on GitHub</a>
+                </div>
             </div>
-            
+        </div>
+
+        <!-- Gaming & Miscellaneous -->
+        <h2 class="category-header">Gaming & Miscellaneous</h2>
+        <div class="project-container">
             <div class="project-card">
-                <details>
-                    <summary class="project-header">
-                        <span class="project-title">Personal Portfolio Website</span>
-                        <span class="project-date">March 2025 - Present</span>
-                    </summary>
-                    <div class="project-details">
-                        <p class="project-tech">Technologies: <span class="tech-highlight">HTML, CSS, JavaScript, VS Code, GitHub Pages</span></p>
-                        <div class="project-description">
-                            <ul>
-                                <li>Developed a personal portfolio website using <span class="tech-highlight">Visual Studio Code</span> with the Live Server extension, enabling real-time previews of modifications for rapid iteration.</li>
-                                <li>Implemented dynamic <span class="tech-highlight">JavaScript animations</span> to enhance user interactivity, including dropdown project details and hover effects.</li>
-                                <li>Hosted the site on <span class="tech-highlight">GitHub Pages</span>, leveraging version control and free static site hosting for seamless deployment.</li>
-                                <li>Purchased a custom domain from Porkbun, configuring DNS settings to personalize and professionalize the site's online presence.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
+                <div class="project-image">Image</div>
+                <div class="project-content">
+                    <h2 class="project-title">Video Game Enhancement Tools</h2>
+                    <p class="project-description">Developed tools to enhance gaming experiences, including mods and performance optimizations. <strong>January 2025 - Present</strong></p>
+                    <a href="https://github.com/example/game-tools" class="project-link" target="_blank">View on GitHub</a>
+                </div>
             </div>
 
-
-
-            <!--
             <div class="project-card">
-                <details>
-                    <summary class="project-header">
-                        <span class="project-title">Future Projects</span>
-                        <span class="project-date">Coming Soon!</span>
-                    </summary>
-                    <div class="project-details">
-                        <p class="project-tech">Technologies: <span class="tech-highlight">Technologies Utilized</span></p>
-                        <div class="project-description">
-                            <ul>
-                                <li>Future Projects to come!</li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
+                <div class="project-image">Image</div>
+                <div class="project-content">
+                    <h2 class="project-title">Personal Portfolio Website</h2>
+                    <p class="project-description">Developed a portfolio website using HTML, CSS, and JavaScript, hosted on GitHub Pages with a custom domain. <strong>March 2025 - Present</strong></p>
+                    <a href="https://github.com/example/project" class="project-link" target="_blank">View on GitHub</a>
+                </div>
             </div>
-            -->
         </div>
     </div>
-
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Main</a>
 </body>
 </html>
