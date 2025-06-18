@@ -97,54 +97,91 @@
         .subtitle {
             font-size: 1.2em;
             color: #34495e;
+        }        .content-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .card-container {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            min-height: 450px;
-            margin: 40px auto;
-            perspective: 1500px;
+        .intro-section {
+            background: #ffffff;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border: 1px solid #f1f3f5;
+        }
+
+        .intro-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .intro-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .section {
-            position: absolute;
-            width: 100%;
+            background: #ffffff;
             padding: 40px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border: 1px solid #dee2e6;
-            border-radius: 12px;
+            border-radius: 16px;
             color: #2c3e50;
-            transition: all 0.8s ease;
-            backface-visibility: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f1f3f5;
+            transition: all 0.3s ease;
         }
 
         .section:hover {
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }        .section h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        .section h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            display: inline-block;
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 2px;
         }
 
         .section p {
             font-size: 1.1em;
             line-height: 1.7;
             margin-bottom: 15px;
-            text-align: left;
+            color: #495057;
         }
 
         .section ul {
-            text-align: left;
             margin-left: 0;
-            margin-top: 15px;
+            margin-top: 20px;
             list-style: none;
         }
 
@@ -161,29 +198,30 @@
             position: absolute;
             left: 0;
             font-weight: bold;
-        }
-
-        .skills-list {
+        }        .skills-list {
             list-style-type: none !important;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
             padding: 0 !important;
-            margin-top: 20px !important;
+            margin-top: 25px !important;
+            justify-content: flex-start;
         }
         
         .skills-list li {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: #ffffff !important;
-            padding: 15px 20px;
-            border-radius: 8px;
+            background: #f8f9fa;
+            color: #495057 !important;
+            padding: 12px 18px;
+            border-radius: 25px;
             display: flex;
             align-items: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+            border: 2px solid #e9ecef;
             margin-bottom: 0 !important;
-            padding-left: 20px !important;
+            padding-left: 18px !important;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: none;
+            cursor: default;
         }
 
         .skills-list li:before {
@@ -191,45 +229,16 @@
         }
         
         .skills-list li:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+            transform: none;
+            box-shadow: none;
         }
         
         .skills-list i {
-            margin-right: 10px;
-            color: #ffffff;
-            font-size: 1.2em;
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            padding: 12px 24px;
-            background-color: transparent;
-            border: 2px solid #3498db;
+            margin-right: 8px;
             color: #3498db;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .nav-btn:hover {
-            background-color: #3498db;
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        .nav-btn.active {
-            background-color: #3498db;
-            color: #ffffff;
+            font-size: 1em;
+        }.nav-buttons {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -242,8 +251,22 @@
                 font-size: 2.5em;
             }
             
-            .card-container {
-                min-height: 500px;
+            .intro-section {
+                padding: 40px 20px;
+                margin-bottom: 30px;
+            }
+
+            .intro-section h2 {
+                font-size: 2em;
+            }
+
+            .intro-section p {
+                font-size: 1.1em;
+            }
+
+            .sections-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .section {
@@ -265,52 +288,49 @@
             <a href="projects.html" class="nav-link">Projects</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
-    </nav>
-
-    <div class="main-content">
+    </nav>    <div class="main-content">
         <header class="header">
             <h1 class="title">About Me</h1>
             <p class="subtitle">Get to know more about my background and expertise</p>
         </header>
 
-        <div class="card-container" id="cardContainer">
-            <div class="section" id="about">
+        <div class="content-container">
+            <div class="intro-section">
                 <h2>Introduction</h2>
                 <p>I am currently a Computer Science student at Texas Christian University with a passion for cybersecurity and 
-                    network penetration testing. My goal is to continuously learn and stay at the forefront of the ever-evolving cybersecurity field. 
-                    My experience includes working with tools such as SIEM, SOAR, and XDR for threat detection and response, along with 
-                    hands-on network administration and troubleshooting.</p>
-                <p>I am also actively involved in personal projects, 
-                    including game enhancement tools and cybersecurity scripts. I have interned at Careington International and 
-                    Award Solutions, where I gained valuable technical support and cybersecurity experience.</p>
+                    network penetration testing. My goal is to continuously learn and stay at the forefront of the ever-evolving cybersecurity field.</p>
+                <p>Eager to leverage my technical skills and creativity to tackle challenging projects, I aspire to contribute to cutting-edge advancements in the tech industry while continuously learning and growing within a collaborative team environment.</p>                <p>My experience includes developing full-stack applications, working with various programming languages and frameworks, and implementing scalable software solutions. I am also actively involved in personal projects, 
+                    including game development, web applications, and automation tools.</p>
             </div>
 
-            <div class="section" id="education">
-                <h2>Education</h2>
-                <p><strong>Texas Christian University</strong> - Bachelor of Science in Computer Science (Expected Graduation: May 2026)</p>
-                <p><strong>Specialty:</strong> Minor in Mathematics | <strong>GPA:</strong> 3.515</p>
-                <p><strong>Honors:</strong> Founders Scholarship, National Society of Collegiate Scholars</p>
+            <div class="sections-grid">
+                <div class="section">
+                    <h2>Education</h2>
+                    <p><strong>Texas Christian University</strong> - Bachelor of Science in Computer Science (Expected Graduation: May 2026)</p>
+                    <p><strong>Specialty:</strong> Minor in Mathematics | <strong>GPA:</strong> 3.515</p>
+                    <p><strong>Honors:</strong> Founders Scholarship, National Society of Collegiate Scholars</p>
+                </div>
+
+                <div class="section">
+                    <h2>Experience</h2>
+                    <p><strong>Careington International</strong> (May 2024 - Aug 2024)</p>
+                    <p><em>Cybersecurity/IT Helpdesk</em></p>
+                    <ul>
+                        <li>Utilized SIEM, SOAR, and XDR tools for network traffic monitoring and threat management</li>
+                        <li>Assisted system administrators with network cabling and provided IT help desk support</li>
+                    </ul>
+
+                    <p style="margin-top: 25px;"><strong>Award Solutions</strong> (May 2023 - Aug 2023)</p>
+                    <p><em>Technical Support Specialist</em></p>
+                    <ul>
+                        <li>Worked with Microsoft 365 Defender, Azure, and Intune to improve security posture</li>
+                        <li>Performed in-depth endpoint diagnostics, repairs, and security assessments</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section" id="experience">
-                <h2>Experience</h2>
-                <p><strong>Careington International</strong> (May 2024 - Aug 2024)</p>
-                <p><em>Cybersecurity/IT Helpdesk</em></p>
-                <ul>
-                    <li>Utilized SIEM, SOAR, and XDR tools for network traffic monitoring and threat management</li>
-                    <li>Assisted system administrators with network cabling and provided IT help desk support</li>
-                </ul>
-
-                <p style="margin-top: 25px;"><strong>Award Solutions</strong> (May 2023 - Aug 2023)</p>
-                <p><em>Technical Support Specialist</em></p>
-                <ul>
-                    <li>Worked with Microsoft 365 Defender, Azure, and Intune to improve security posture</li>
-                    <li>Performed in-depth endpoint diagnostics, repairs, and security assessments</li>
-                </ul>
-            </div>
-
-            <div class="section" id="skills">
-                <h2>Skills</h2>
+            <div class="section">
+                <h2>Skills & Certifications</h2>
                 <ul class="skills-list">
                     <li><i class="fas fa-shield-alt"></i> ISC2 CC Certification</li>
                     <li><i class="fab fa-microsoft"></i> C#</li>
@@ -326,115 +346,6 @@
                 </ul>
             </div>
         </div>
-
-        <div class="nav-buttons">
-            <button class="nav-btn active" data-section="about">Introduction</button>
-            <button class="nav-btn" data-section="education">Education</button>
-            <button class="nav-btn" data-section="experience">Experience</button>
-            <button class="nav-btn" data-section="skills">Skills</button>
-        </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
-            const buttons = document.querySelectorAll('.nav-btn');
-            const cardContainer = document.getElementById('cardContainer');
-            
-            // Set initial positions
-            function setupCards() {
-                sections.forEach((section, index) => {
-                    if (index === 0) {
-                        section.style.transform = 'translateZ(0px)';
-                        section.style.opacity = '1';
-                        section.style.filter = 'blur(0px)';
-                        section.style.zIndex = '4';
-                    } else {
-                        const offset = 300 * index;
-                        section.style.transform = `translateZ(-${offset}px) translateY(${index * 20}px)`;
-                        section.style.opacity = `${1 - (index * 0.3)}`;
-                        section.style.filter = `blur(${index * 2}px)`;
-                        section.style.zIndex = `${4 - index}`;
-                    }
-                });
-            }
-            
-            setupCards();
-            
-            // Function to show a specific section
-            function showSection(sectionId) {
-                const sections = document.querySelectorAll('.section');
-                let selectedIndex = 0;
-                
-                sections.forEach((section, index) => {
-                    if (section.id === sectionId) {
-                        selectedIndex = index;
-                    }
-                });
-                
-                sections.forEach((section, index) => {
-                    const relativePos = index - selectedIndex;
-                    
-                    if (relativePos === 0) {
-                        section.style.transform = 'translateZ(0px)';
-                        section.style.opacity = '1';
-                        section.style.filter = 'blur(0px)';
-                        section.style.zIndex = '4';
-                    } else {
-                        const offset = Math.abs(relativePos) * 300;
-                        const yOffset = relativePos * 20;
-                        section.style.transform = `translateZ(-${offset}px) translateY(${yOffset}px)`;
-                        section.style.opacity = `${1 - (Math.abs(relativePos) * 0.3)}`;
-                        section.style.filter = `blur(${Math.abs(relativePos) * 2}px)`;
-                        section.style.zIndex = `${4 - Math.abs(relativePos)}`;
-                    }
-                });
-                
-                buttons.forEach(btn => {
-                    if (btn.dataset.section === sectionId) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                });
-            }
-            
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const sectionId = this.dataset.section;
-                    showSection(sectionId);
-                });
-            });
-            
-            document.addEventListener('keydown', function(e) {
-                const activeButton = document.querySelector('.nav-btn.active');
-                const activeIndex = Array.from(buttons).indexOf(activeButton);
-                
-                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                    const nextIndex = (activeIndex + 1) % buttons.length;
-                    const nextButton = buttons[nextIndex];
-                    showSection(nextButton.dataset.section);
-                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                    const prevIndex = (activeIndex - 1 + buttons.length) % buttons.length;
-                    const prevButton = buttons[prevIndex];
-                    showSection(prevButton.dataset.section);
-                }
-            });
-            
-            function updateContainerHeight() {
-                let maxHeight = 0;
-                sections.forEach(section => {
-                    section.style.position = 'relative';
-                    const height = section.offsetHeight;
-                    if (height > maxHeight) maxHeight = height;
-                    section.style.position = 'absolute';
-                });
-                cardContainer.style.height = `${maxHeight + 40}px`;
-            }
-            
-            updateContainerHeight();
-            window.addEventListener('resize', updateContainerHeight);
-        });
-    </script>
 </body>
 </html>
