@@ -83,15 +83,28 @@
 
         .header {
             margin-bottom: 40px;
-        }
-
-        .title {
+        }        .title {
             font-size: 3em;
             font-weight: 700;
             margin-bottom: 10px;
             color: #2c3e50;
             font-family: 'Poppins', sans-serif;
             letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
         }
 
         .subtitle {
@@ -101,24 +114,36 @@
             width: 100%;
             max-width: 1000px;
             margin: 0 auto;
-        }
-
-        .intro-section {
+            padding: 0 20px;
+        }        .intro-section {
             background: #ffffff;
-            padding: 60px 40px;
+            padding: 60px 20px;
             margin-bottom: 40px;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             text-align: center;
             border: 1px solid #f1f3f5;
-        }
-
-        .intro-section h2 {
+        }.intro-section h2 {
             font-size: 2.5em;
             margin-bottom: 30px;
             color: #2c3e50;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .intro-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+            border-radius: 2px;
         }
 
         .intro-section p {
@@ -129,18 +154,14 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .sections-grid {
+        }        .sections-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
-        }
-
-        .section {
+        }        .section {
             background: #ffffff;
-            padding: 40px;
+            padding: 40px 20px;
             border-radius: 16px;
             color: #2c3e50;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -150,8 +171,9 @@
 
         .section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }        .section h2 {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);        }
+
+        .section h2 {
             font-size: 2em;
             margin-bottom: 25px;
             color: #2c3e50;
@@ -159,16 +181,18 @@
             font-weight: 600;
             position: relative;
             padding-bottom: 15px;
+            text-align: center;
         }
 
         .section h2::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, #3498db, #2980b9);
+            background: #3498db;
             border-radius: 2px;
         }
 
@@ -239,6 +263,23 @@
             font-size: 1em;
         }.nav-buttons {
             display: none;
+        }        @media (max-width: 1024px) {
+            .content-container {
+                padding: 0 15px;
+            }
+
+            .sections-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .intro-section {
+                padding: 40px 15px;
+            }
+
+            .section {
+                padding: 30px 15px;
+            }
         }
 
         @media (max-width: 768px) {

@@ -39,13 +39,11 @@
                 transform: scale(1);
                 filter: blur(0px);
             }
-        }
-
-        .nav-header {
+        }        .nav-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
+            padding: 20px 20px;
             background-color: #ffffff;
             border-bottom: 1px solid #dee2e6;
         }
@@ -137,12 +135,25 @@
 
         .btn i {
             font-size: 1.1em;
+        }        @media (max-width: 1024px) {
+            .nav-header {
+                padding: 20px 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .name {
+                font-size: 3.5em;
+            }
         }
 
         @media (max-width: 768px) {
             .nav-header {
                 flex-direction: column;
                 gap: 15px;
+                padding: 20px 15px;
             }
 
             .name {
