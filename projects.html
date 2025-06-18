@@ -115,35 +115,51 @@
             width: 100%;
             max-width: 1200px;
             padding: 0 10px;
-        }
-
-        .project-card {
+        }        .project-card {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border: 1px solid #dee2e6;
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-        }
-
-        .project-image {
+        }        .project-image {
             width: 100%;
             height: 150px;
-            background-color: #ccc;
+            background-color: #f8f9fa;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.5em;
             color: #666;
+            overflow: hidden;
         }
 
-        .project-content {
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }        .project-content {
             padding: 20px;
+            position: relative;
+        }
+
+        .project-date {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #3498db;
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
         }
 
         .project-title {
@@ -241,23 +257,23 @@
         </header>
 
         <!-- Security & Exploitation -->
-        <h2 class="category-header">Security & Exploitation</h2>
-        <div class="project-container">
+        <h2 class="category-header">Security & Exploitation</h2>        <div class="project-container">
             <div class="project-card">
-                <div class="project-image">Image</div>
-                <div class="project-content">
-                    <h2 class="project-title">Password Manager</h2>
-                    <p class="project-description">A secure password management application built with Python and Tkinter, featuring encrypted storage and master password authentication. <strong>December 2024</strong></p>
+                <div class="project-image">
+                    <img src="ProjectsImages/PasswordManager.png" alt="Password Manager Screenshot">
+                </div>
+                <div class="project-content">                    <h2 class="project-title">Password Manager</h2>
+                    <p class="project-description">A full-stack web-based Password Manager built with React, Node.js, Express, and MySQL. Features organized password storage with easy access, CORS-enabled backend, and a modern React frontend for securely managing passwords. <strong>December 2024</strong></p>
                     <a href="https://github.com/alex-andre4/Password-Manager" class="project-link" target="_blank">View on GitHub</a>
                 </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">Image</div>
+            </div>            <div class="project-card">
+                <div class="project-image">
+                    <img src="ProjectsImages/hashcat.png" alt="Hashcat Password Cracking Screenshot">
+                </div>
                 <div class="project-content">
                     <h2 class="project-title">Password Security & Hash Cracking</h2>
                     <p class="project-description">Conducted password hash analysis using tools like Hashcat and John the Ripper to demonstrate security vulnerabilities. <strong>February 2025</strong></p>
-                    <a href="https://github.com/example/another-project" class="project-link" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/alex-andre4/Password-Cracking-Lab" class="project-link" target="_blank">View on GitHub</a>
                 </div>
             </div>
 
@@ -277,14 +293,14 @@
                     <p class="project-description">Performed buffer overflow attacks in a controlled environment to understand vulnerabilities. <strong>October 2024</strong></p>
                     <a href="https://github.com/example/buffer-overflow" class="project-link" target="_blank">View on GitHub</a>
                 </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">Image</div>
+            </div>            <div class="project-card">
+                <div class="project-image">
+                    <img src="ProjectsImages/gdb2.png" alt="GDB Debugger Screenshot">
+                </div>
                 <div class="project-content">
                     <h2 class="project-title">Binary Bomb Defusal Lab</h2>
                     <p class="project-description">Defused binary bombs by analyzing assembly code and debugging techniques. <strong>September 2024</strong></p>
-                    <a href="https://github.com/example/binary-bomb" class="project-link" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/alex-andre4/COSC30203-BombLab" class="project-link" target="_blank">View on GitHub</a>
                 </div>
             </div>
         </div>
