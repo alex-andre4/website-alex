@@ -6,6 +6,20 @@
     <title>Alex's Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload other pages for instant navigation -->
+    <link rel="preload" href="index.html" as="document">
+    <link rel="preload" href="about.html" as="document">
+    <link rel="preload" href="contact.html" as="document">
+    
+    <!-- Preload critical images for this page -->
+    <link rel="preload" href="ProjectsImages/PasswordManager.png" as="image">
+    <link rel="preload" href="ProjectsImages/hashcat.png" as="image">
+    <link rel="preload" href="ProjectsImages/SQLGenerated.png" as="image">
+    <link rel="preload" href="ProjectsImages/ESP.png" as="image">
+    <link rel="preload" href="ProjectsImages/Portfolio.png" as="image">
+    <link rel="preload" href="ProjectsImages/Wireshark.png" as="image">
+    
     <style>
         * {
             margin: 0;
@@ -413,9 +427,111 @@
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
         <i class="fas fa-sun theme-icon sun-icon"></i>
         <i class="fas fa-moon theme-icon moon-icon"></i>
-    </button>
+    </button>    <script>
+        // Enhanced Page Caching and Preloading System
+        class PageCache {
+            constructor() {
+                this.cache = new Map();
+                this.preloadedPages = new Set();
+                this.init();
+            }
 
-    <script>
+            init() {
+                // Preload all pages after initial page load
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => this.preloadAllPages());
+                } else {
+                    this.preloadAllPages();
+                }
+
+                // Intercept all navigation links
+                this.interceptNavigation();
+            }
+
+            async preloadAllPages() {
+                const pages = ['index.html', 'about.html', 'contact.html'];
+                
+                // Add small delay to not interfere with initial page load
+                setTimeout(async () => {
+                    for (const page of pages) {
+                        await this.preloadPage(page);
+                    }
+                }, 100);
+            }
+
+            async preloadPage(url) {
+                if (this.preloadedPages.has(url)) return;
+
+                try {
+                    const response = await fetch(url);
+                    if (response.ok) {
+                        const html = await response.text();
+                        this.cache.set(url, html);
+                        this.preloadedPages.add(url);
+                        console.log(`✅ Preloaded: ${url}`);
+                    }
+                } catch (error) {
+                    console.log(`⚠️ Failed to preload: ${url}`, error);
+                }
+            }
+
+            interceptNavigation() {
+                // Intercept all clicks on navigation links
+                document.addEventListener('click', (e) => {
+                    const link = e.target.closest('a[href]');
+                    if (!link) return;
+
+                    const href = link.getAttribute('href');
+                    
+                    // Only handle internal HTML pages
+                    if (href && href.endsWith('.html') && !href.startsWith('http')) {
+                        e.preventDefault();
+                        this.navigateToPage(href);
+                    }
+                });
+            }
+
+            navigateToPage(url) {
+                // Update URL without triggering reload
+                history.pushState(null, '', url);
+                
+                if (this.cache.has(url)) {
+                    // Use cached version for instant navigation
+                    this.loadCachedPage(url);
+                } else {
+                    // Fallback to normal navigation
+                    window.location.href = url;
+                }
+            }
+
+            loadCachedPage(url) {
+                const cachedHtml = this.cache.get(url);
+                
+                // Add smooth transition
+                document.body.style.opacity = '0.7';
+                document.body.style.transform = 'scale(0.98)';
+                
+                setTimeout(() => {
+                    // Replace page content
+                    document.documentElement.innerHTML = cachedHtml;
+                    
+                    // Reinitialize the cache system on new page
+                    new PageCache();
+                    
+                    // Load saved theme
+                    const savedTheme = localStorage.getItem('theme') || 'light';
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                    
+                    // Smooth fade in
+                    document.body.style.opacity = '1';
+                    document.body.style.transform = 'scale(1)';
+                }, 100);
+            }
+        }
+
+        // Initialize page caching system
+        const pageCache = new PageCache();
+
         // Dark mode functionality
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
