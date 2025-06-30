@@ -16,14 +16,32 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --secondary-text: #34495e;
+            --border-color: #dee2e6;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e8e8e8;
+            --secondary-text: #b8b8b8;
+            --border-color: #333333;
+            --accent-color: #4db8ff;
+            --accent-hover: #66c2ff;
+        }
+
         body {
-            background-color: #ffffff;
+            background-color: var(--bg-color);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             font-weight: 400;
             letter-spacing: -0.01em;
-            color: #2c3e50;
+            color: var(--text-color);
             opacity: 0;
             animation: fadeIn 0.6s ease-out forwards;
         }
@@ -44,14 +62,14 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 20px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #dee2e6;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .nav-logo {
             font-size: 1.5em;
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--text-color);
             text-decoration: none;
             font-family: 'Poppins', sans-serif;
             letter-spacing: -0.02em;
@@ -63,7 +81,7 @@
         }
 
         .nav-link {
-            color: #2c3e50;
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95em;
@@ -72,7 +90,7 @@
         }
 
         .nav-link:hover {
-            color: #3498db;
+            color: var(--accent-color);
         }
 
         .main-content {
@@ -89,12 +107,12 @@
             font-weight: 600;
             margin-bottom: 20px;
             letter-spacing: -0.02em;
-            color: #202020;
+            color: var(--text-color);
         }
 
         .subtitle {
             font-size: 1.2em;
-            color: #34495e;
+            color: var(--secondary-text);
             margin-bottom: 40px;
             font-weight: 400;
             letter-spacing: -0.01em;
@@ -111,8 +129,8 @@
         .btn {
             padding: 16px 32px;
             background-color: transparent;
-            border: 2px solid #dee2e6;
-            color: #2c3e50;
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -127,15 +145,71 @@
 
         .btn:hover {
             color: #ffffff;
-            background-color: #3498db;
-            border-color: #3498db;
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
         }
 
         .btn i {
             font-size: 1.1em;
-        }        @media (max-width: 1024px) {
+        }        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .theme-icon {
+            font-size: 24px;
+            color: #ffffff;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+        }
+
+        .sun-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        .moon-icon {
+            opacity: 0;
+            transform: rotate(180deg) scale(0.5);
+        }
+
+        [data-theme="dark"] .sun-icon {
+            opacity: 0;
+            transform: rotate(-180deg) scale(0.5);
+        }
+
+        [data-theme="dark"] .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        @media (max-width: 1024px) {
             .nav-header {
                 padding: 20px 15px;
             }
@@ -164,6 +238,17 @@
                 padding: 14px 24px;
                 font-size: 0.9em;
             }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .theme-icon {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -187,5 +272,28 @@
             <a href="contact.html" class="btn"><i class="fas fa-envelope"></i> Contact</a>
         </div>
     </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun theme-icon sun-icon"></i>
+        <i class="fas fa-moon theme-icon moon-icon"></i>
+    </button>
+
+    <script>
+        // Dark mode functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+    </script>
 </body>
 </html>
