@@ -1,53 +1,87 @@
-Personal Portfolio Website
+🧑‍💻 Personal Portfolio Website
 
-Welcome to the repository for my personal portfolio website! This site showcases my projects in security, systems, databases, gaming, and miscellaneous development, built with a clean and interactive design. It’s hosted on GitHub Pages with a custom domain purchased from Porkbun.
-Overview
+Welcome to the repository for my personal portfolio website, showcasing projects across security, systems, databases, gaming, and general development. Built with a clean, interactive design, the site is deployed via GitHub Pages and uses a custom domain registered through Porkbun.
+📌 Overview
 
-This portfolio highlights my technical skills and accomplishments through detailed project descriptions. Key features include:
+This website serves as a central hub to highlight my technical skills, hands-on projects, and academic work.
+✨ Key Features
 
-    Dynamic Design: Built with HTML, CSS, and JavaScript, featuring dropdown project details and hover animations.
-    Real-Time Development: Developed using Visual Studio Code with the Live Server extension for instant previews.
-    Deployment: Hosted on GitHub Pages with a custom domain for a professional touch.
+    Dynamic Design: Built using HTML, CSS, and JavaScript, featuring dropdown menus and hover animations for interactivity.
 
-Projects
+    Real-Time Development: Developed in Visual Studio Code using the Live Server extension for live preview.
 
-    Security & Exploitation: Includes PCAP analysis, buffer overflow attacks, binary bomb defusal, and password cracking.
-    Systems & Databases: Features a comprehensive database management system.
-    Gaming & Miscellaneous: Showcases game enhancement tools and this portfolio website itself.
+    Professional Deployment: Hosted via GitHub Pages with a custom domain for a professional touch.
 
-Setup Instructions
+🚀 Projects
+🔐 Security & Exploitation
 
-To run this website locally:
+    PCAP analysis using Wireshark
 
-    Clone the Repository:
-    bash
+    Buffer overflow and binary exploitation
+
+    Binary bomb defusal (GDB)
+
+    Password cracking using Hashcat & John the Ripper
+
+🖥️ Systems & Databases
+
+    Custom relational database system with SQL schema
+
+    MySQL-based application deployments
+
+🎮 Gaming & Miscellaneous
+
+    Game enhancement tools (ESP, aimbot, etc.)
+
+    This portfolio website (you're looking at it!)
+
+🛠️ Setup Instructions
+
+To run the website locally:
+
+    Clone the repository
 
     git clone https://github.com/alex-andre4/website-alex.git
-    Open in Visual Studio Code:
+
+    Open in Visual Studio Code
+
         Install the Live Server extension.
+
         Open the project folder in VS Code.
-        Right-click index.html and select "Open with Live Server" to view it in your browser with real-time updates.
-    Modify and Test:
-        Edit the HTML, CSS, or JavaScript files, and see changes instantly via Live Server.
 
-Deployment
+        Right-click index.html and choose "Open with Live Server".
 
-    GitHub Pages: The site is deployed automatically via GitHub Pages from the main branch. Access it at alex-andre4.github.io/website-alex or your custom domain.
-    Custom Domain: Configured with Porkbun DNS settings to point to GitHub Pages.
+    Edit & Preview
 
-Technologies Used
+        Modify the HTML, CSS, or JavaScript files.
 
-    HTML: Structure and content.
-    CSS: Styling with a retro monospace aesthetic.
-    JavaScript: Interactive features like sorting and animations.
-    Visual Studio Code: Development environment with Live Server.
-    GitHub Pages: Hosting platform.
-    Font Awesome: Icons for buttons.
+        Live Server will automatically reload your changes.
 
-Credits
+🌐 Deployment
 
-    Created by Alexandre Morales.
-    Inspired by my passion for cybersecurity, systems programming, and web development.
-    Icons provided by Font Awesome.
+    GitHub Pages: Deployed from the main branch. Accessible at:
 
-Feel free to explore the code, suggest improvements, or fork it for your own use!
+    https://alex-andre4.github.io/website-alex
+
+    Custom Domain: Configured via Porkbun DNS settings to point to GitHub Pages.
+
+💻 Technologies Used
+Tool / Tech	Purpose
+HTML	Page structure
+CSS	Styling (retro monospace aesthetic)
+JavaScript	Animations & interactivity
+Visual Studio Code	Code editor w/ Live Server
+GitHub Pages	Static hosting
+Font Awesome	Iconography
+🙌 Credits
+
+    Author: Alexandre Morales
+
+    Inspired by my passion for cybersecurity, systems programming, and clean UX/UI.
+
+    Icons by Font Awesome.
+
+📬 Feedback
+
+Feel free to explore, open issues, fork the project, or suggest improvements!
+Let’s connect and build something great.
