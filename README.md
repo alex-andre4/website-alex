@@ -85,3 +85,5 @@ Font Awesome	Iconography
 
 Feel free to explore, open issues, fork the project, or suggest improvements!
 Let’s connect and build something great.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
