@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles/common.css">
+    
     <!-- Preload other pages for instant navigation -->
     <link rel="preload" href="index.html" as="document">
     <link rel="preload" href="projects.html" as="document">
@@ -18,110 +21,8 @@
     <link rel="preload" href="ProjectsImages/SQLGenerated.png" as="image">
     <link rel="preload" href="ProjectsImages/ESP.png" as="image">
     
+    <!-- Page-specific styles -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #2c3e50;
-            --secondary-text: #34495e;
-            --muted-text: #495057;
-            --border-color: #dee2e6;
-            --card-bg: #ffffff;
-            --card-border: #f1f3f5;
-            --shadow: rgba(0, 0, 0, 0.08);
-            --shadow-hover: rgba(0, 0, 0, 0.12);
-            --accent-color: #3498db;
-            --accent-hover: #2980b9;
-            --skill-bg: #f8f9fa;
-            --skill-border: #e9ecef;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --text-color: #e8e8e8;
-            --secondary-text: #b8b8b8;
-            --muted-text: #a0a0a0;
-            --border-color: #333333;
-            --card-bg: #2d2d2d;
-            --card-border: #404040;
-            --shadow: rgba(0, 0, 0, 0.3);
-            --shadow-hover: rgba(0, 0, 0, 0.4);
-            --accent-color: #4db8ff;
-            --accent-hover: #66c2ff;
-            --skill-bg: #363636;
-            --skill-border: #404040;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            letter-spacing: -0.01em;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        html, body {
-            overflow: auto;
-            scrollbar-width: none; /* Firefox */
-        }
-        body::-webkit-scrollbar, html::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Edge */
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-                filter: blur(2px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-                filter: blur(0px);
-            }
-        }        .nav-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 20px;
-            background-color: var(--bg-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-logo {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: var(--text-color);
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-link {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--accent-color);
-        }
-
         .main-content {
             flex: 1;
             display: flex;
@@ -133,7 +34,9 @@
 
         .header {
             margin-bottom: 40px;
-        }        .title {
+        }
+
+        .title {
             font-size: 3em;
             font-weight: 700;
             margin-bottom: 10px;
@@ -160,12 +63,16 @@
         .subtitle {
             font-size: 1.2em;
             color: var(--secondary-text);
-        }        .content-container {
+        }
+
+        .content-container {
             width: 100%;
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
-        }        .intro-section {
+        }
+
+        .intro-section {
             background: var(--card-bg);
             padding: 60px 20px;
             margin-bottom: 40px;
@@ -212,12 +119,16 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-        }        .sections-grid {
+        }
+
+        .sections-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
-        }        .section {
+        }
+
+        .section {
             background: var(--card-bg);
             padding: 40px 20px;
             border-radius: 16px;
@@ -327,13 +238,9 @@
             margin-right: 8px;
             color: var(--accent-color);
             font-size: 1em;
-        }.nav-buttons {
-            display: none;
-        }        @media (max-width: 1024px) {
-            .nav-header {
-                padding: 20px 15px;
-            }
+        }
 
+        @media (max-width: 1024px) {
             .content-container {
                 padding: 0 15px;
             }
@@ -350,13 +257,9 @@
             .section {
                 padding: 30px 15px;
             }
-        }@media (max-width: 768px) {
-            .nav-header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px 15px;
-            }
+        }
 
+        @media (max-width: 768px) {
             .title {
                 font-size: 2.5em;
             }
@@ -382,159 +285,13 @@
             .section {
                 padding: 30px 20px;
             }
-
-            .skills-list {
-                grid-template-columns: 1fr;
-            }
-        }        /* Dark Mode Toggle Button */
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 100px;
-            height: 50px;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            z-index: 1000;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(135deg, #f4d03f 0%, #f1c40f 100%);
-        }
-
-        [data-theme="dark"] .theme-toggle {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.98);
-        }        .toggle-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-
-        .toggle-text {
-            display: none;
-        }
-
-        .toggle-slider {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 40px;
-            height: 40px;
-            background: #ffffff;
-            border-radius: 50%;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: translateX(0);
-        }
-
-        [data-theme="dark"] .toggle-slider {
-            transform: translateX(50px);
-        }
-
-        .toggle-icon {
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }        .sun-icon {
-            opacity: 1;
-            position: relative;
-            color: #ffa500;
-        }
-
-        .sun-icon i {
-            opacity: 1;
-            font-size: 18px;
-        }
-
-        .moon-icon {
-            color: #3498db;
-            opacity: 0;
-            position: absolute;
-        }
-
-        [data-theme="dark"] .sun-icon {
-            opacity: 0;
-        }        [data-theme="dark"] .moon-icon {
-            opacity: 1;
-        }        .stars {
-            display: none;
-        }
-
-        [data-theme="dark"] .stars {
-            display: none;
-        }
-
-        .star {
-            display: none;
-        }
-
-        .star:nth-child(1) { display: none; }
-        .star:nth-child(2) { display: none; }
-        .star:nth-child(3) { display: none; }
-        .star:nth-child(4) { display: none; }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }        }@media (max-width: 768px) {
-            .theme-toggle {
-                width: 80px;
-                height: 40px;
-                bottom: 20px;
-                right: 20px;
-                border-radius: 20px;
-            }
-
-            .toggle-slider {
-                width: 30px;
-                height: 30px;
-                top: 5px;
-            }
-
-            [data-theme="dark"] .toggle-slider {
-                transform: translateX(40px);
-            }            .toggle-icon {
-                font-size: 14px;
-            }
-
-            .sun-icon i {
-                font-size: 14px;
-            }
-        }        .container {
-            -ms-overflow-style: none;  /* Internet Explorer 10+ */
-            scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
-        }
-
-        .container::-webkit-scrollbar { 
-            display: none;  /* Older Safari and Chromium */
         }
     </style>
 </head>
 <body>
-    <nav class="nav-header">
-        <a href="index.html" class="nav-logo">Alexandre Morales</a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About Me</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-    </nav>    <div class="main-content">
+    <div data-navbar></div>
+
+    <div class="main-content">
         <header class="header">
             <h1 class="title">About Me</h1>
             <p class="subtitle">Get to know more about my background and expertise</p>
@@ -548,13 +305,16 @@
                 <p>I am eager to leverage my skills in software development to contribute to innovative projects within collaborative, forward-thinking teams while continuously learning and growing as an engineer.</p>
             </div>
 
-            <div class="sections-grid">                <div class="section">
+            <div class="sections-grid">
+                <div class="section">
                     <h2>Education</h2>
                     <p><strong>Texas Christian University</strong> - Bachelor of Science in Computer Science<br>
                     <strong>Expected Graduation:</strong> May 2026</p>
                     <p><strong>Specialty:</strong> Minor in Mathematics | <strong>GPA:</strong> 3.515</p>
                     <p><strong>Honors:</strong> Deans List Spring 2025, Founders Scholarship, National Society of Collegiate Scholars</p>
-                </div><div class="section">
+                </div>
+
+                <div class="section">
                     <h2>Experience</h2>
                     <div class="experience-item">
                         <h3>Careington International — Cybersecurity & Software Engineering Intern</h3>
@@ -592,132 +352,21 @@
                 </ul>
             </div>
         </div>
-    </div>    <!-- Dark Mode Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-        <div class="toggle-content">            <div class="toggle-slider">
+    </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" onclick="ThemeToggle.toggle()" aria-label="Toggle dark mode">
+        <div class="toggle-content">
+            <div class="toggle-slider">
                 <i class="fas fa-sun toggle-icon sun-icon"></i>
                 <i class="fas fa-moon toggle-icon moon-icon"></i>
             </div>
         </div>
-    </button><script>
-        // Enhanced Page Caching and Preloading System
-        class PageCache {
-            constructor() {
-                this.cache = new Map();
-                this.preloadedPages = new Set();
-                this.init();
-            }
+    </button>
 
-            init() {
-                // Preload all pages after initial page load
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', () => this.preloadAllPages());
-                } else {
-                    this.preloadAllPages();
-                }
-
-                // Intercept all navigation links
-                this.interceptNavigation();
-            }
-
-            async preloadAllPages() {
-                const pages = ['index.html', 'projects.html', 'contact.html'];
-                
-                // Add small delay to not interfere with initial page load
-                setTimeout(async () => {
-                    for (const page of pages) {
-                        await this.preloadPage(page);
-                    }
-                }, 100);
-            }
-
-            async preloadPage(url) {
-                if (this.preloadedPages.has(url)) return;
-
-                try {
-                    const response = await fetch(url);
-                    if (response.ok) {
-                        const html = await response.text();
-                        this.cache.set(url, html);
-                        this.preloadedPages.add(url);
-                        console.log(`✅ Preloaded: ${url}`);
-                    }
-                } catch (error) {
-                    console.log(`⚠️ Failed to preload: ${url}`, error);
-                }
-            }
-
-            interceptNavigation() {
-                // Intercept all clicks on navigation links
-                document.addEventListener('click', (e) => {
-                    const link = e.target.closest('a[href]');
-                    if (!link) return;
-
-                    const href = link.getAttribute('href');
-                    
-                    // Only handle internal HTML pages
-                    if (href && href.endsWith('.html') && !href.startsWith('http')) {
-                        e.preventDefault();
-                        this.navigateToPage(href);
-                    }
-                });
-            }
-
-            navigateToPage(url) {
-                // Update URL without triggering reload
-                history.pushState(null, '', url);
-                
-                if (this.cache.has(url)) {
-                    // Use cached version for instant navigation
-                    this.loadCachedPage(url);
-                } else {
-                    // Fallback to normal navigation
-                    window.location.href = url;
-                }
-            }
-
-            loadCachedPage(url) {
-                const cachedHtml = this.cache.get(url);
-                
-                // Add smooth transition
-                document.body.style.opacity = '0.7';
-                document.body.style.transform = 'scale(0.98)';
-                
-                setTimeout(() => {
-                    // Replace page content
-                    document.documentElement.innerHTML = cachedHtml;
-                    
-                    // Reinitialize the cache system on new page
-                    new PageCache();
-                    
-                    // Load saved theme
-                    const savedTheme = localStorage.getItem('theme') || 'light';
-                    document.documentElement.setAttribute('data-theme', savedTheme);
-                    
-                    // Smooth fade in
-                    document.body.style.opacity = '1';
-                    document.body.style.transform = 'scale(1)';
-                }, 100);
-            }
-        }
-
-        // Initialize page caching system
-        const pageCache = new PageCache();
-
-        // Dark mode functionality
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-
-        // Load saved theme on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        });
-    </script>
+    <!-- Component Scripts -->
+    <script src="components/navbar.js"></script>
+    <script src="components/button.js"></script>
+    <script src="scripts/common.js"></script>
 </body>
 </html>

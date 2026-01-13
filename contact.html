@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles/common.css">
+    
     <!-- Preload other pages for instant navigation -->
     <link rel="preload" href="index.html" as="document">
     <link rel="preload" href="about.html" as="document">
@@ -17,96 +20,14 @@
     <link rel="preload" href="ProjectsImages/SQLGenerated.png" as="image">
     <link rel="preload" href="ProjectsImages/ESP.png" as="image">
     
+    <!-- Page-specific styles -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
         :root {
-            --bg-color: #ffffff;
-            --text-color: #2c3e50;
-            --secondary-text: #34495e;
-            --border-color: #dee2e6;
-            --card-bg: #ffffff;
             --card-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            --card-border: #f1f3f5;
-            --shadow: rgba(0, 0, 0, 0.08);
-            --shadow-hover: rgba(0, 0, 0, 0.12);
-            --accent-color: #3498db;
-            --accent-hover: #2980b9;
         }
 
         [data-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --text-color: #e8e8e8;
-            --secondary-text: #b8b8b8;
-            --border-color: #333333;
-            --card-bg: #2d2d2d;
             --card-gradient: linear-gradient(135deg, #2d2d2d 0%, #363636 100%);
-            --card-border: #404040;
-            --shadow: rgba(0, 0, 0, 0.3);
-            --shadow-hover: rgba(0, 0, 0, 0.4);
-            --accent-color: #4db8ff;
-            --accent-hover: #66c2ff;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            color: var(--text-color);
-            letter-spacing: -0.01em;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-                filter: blur(2px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-                filter: blur(0px);
-            }
-        }        .nav-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 20px;
-            background-color: var(--bg-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-logo {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: var(--text-color);
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-link {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--accent-color);
         }
 
         .main-content {
@@ -201,11 +122,9 @@
             min-width: 80px;
             display: inline-block;
             flex-shrink: 0;
-        }@media (max-width: 1024px) {
-            .nav-header {
-                padding: 20px 15px;
-            }
+        }
 
+        @media (max-width: 1024px) {
             .contact-container {
                 padding: 0 10px;
             }
@@ -213,13 +132,9 @@
             .contact-card {
                 padding: 30px 15px;
             }
-        }        @media (max-width: 768px) {
-            .nav-header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px 15px;
-            }
+        }
 
+        @media (max-width: 768px) {
             .title {
                 font-size: 2.5em;
             }
@@ -254,157 +169,19 @@
                 font-size: 0.9em;
                 word-break: break-all;
             }
-        }        /* Dark Mode Toggle Button */
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 100px;
-            height: 50px;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            z-index: 1000;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(135deg, #f4d03f 0%, #f1c40f 100%);
-        }
-
-        [data-theme="dark"] .theme-toggle {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.98);
-        }        .toggle-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-
-        .toggle-text {
-            display: none;
-        }
-
-        .toggle-slider {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 40px;
-            height: 40px;
-            background: #ffffff;
-            border-radius: 50%;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: translateX(0);
-        }
-
-        [data-theme="dark"] .toggle-slider {
-            transform: translateX(50px);
-        }
-
-        .toggle-icon {
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }        .sun-icon {
-            opacity: 1;
-            position: relative;
-            color: #ffa500;
-        }
-
-        .sun-icon i {
-            opacity: 1;
-            font-size: 18px;
-        }
-
-        .moon-icon {
-            color: #3498db;
-            opacity: 0;
-            position: absolute;
-        }
-
-        [data-theme="dark"] .sun-icon {
-            opacity: 0;
-        }
-
-        [data-theme="dark"] .moon-icon {
-            opacity: 1;        }        .stars {
-            display: none;
-        }
-
-        [data-theme="dark"] .stars {
-            display: none;
-        }
-
-        .star {
-            display: none;
-        }
-
-        .star:nth-child(1) { display: none; }
-        .star:nth-child(2) { display: none; }
-        .star:nth-child(3) { display: none; }
-        .star:nth-child(4) { display: none; }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }        @media (max-width: 768px) {
-            .theme-toggle {
-                width: 80px;
-                height: 40px;
-                bottom: 20px;
-                right: 20px;
-                border-radius: 20px;
-            }
-
-            .toggle-slider {
-                width: 30px;
-                height: 30px;
-                top: 5px;
-            }
-
-            [data-theme="dark"] .toggle-slider {
-                transform: translateX(40px);
-            }            .toggle-icon {
-                font-size: 14px;
-            }
-
-            .sun-icon i {
-                font-size: 14px;
-            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav-header">
-        <a href="index.html" class="nav-logo">Alexandre Morales</a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About Me</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-    </nav>
+    <div data-navbar></div>
 
     <div class="main-content">
         <h1 class="title">Contact Me</h1>
 
         <div class="contact-container">
             <div class="contact-card">
-                <h2 class="contact-title">Alexandre Morales</h2>                <div class="contact-info">
+                <h2 class="contact-title">Alexandre Morales</h2>
+                <div class="contact-info">
                     <p><i class="fas fa-envelope"></i><strong>Email:</strong> <a href="mailto:alexmorales11703@outlook.com">alexmorales11703@outlook.com</a> <span style="color: var(--accent-color); font-weight: 500;">(Preferred)</span></p>
                     <p><i class="fas fa-envelope"></i><strong>School:</strong> <a href="mailto:a.morales@tcu.edu">a.g.morales117@tcu.edu</a></p>
                     <p><i class="fas fa-phone"></i><strong>Phone:</strong> <a href="tel:713-458-8451">(713) 458-8451</a></p>
@@ -415,133 +192,21 @@
                 </div>
             </div>
         </div>
-    </div>    <!-- Dark Mode Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" onclick="ThemeToggle.toggle()" aria-label="Toggle dark mode">
         <div class="toggle-content">
             <div class="toggle-slider">
                 <i class="fas fa-sun toggle-icon sun-icon"></i>
                 <i class="fas fa-moon toggle-icon moon-icon"></i>
             </div>
         </div>
-    </button><script>
-        // Enhanced Page Caching and Preloading System
-        class PageCache {
-            constructor() {
-                this.cache = new Map();
-                this.preloadedPages = new Set();
-                this.init();
-            }
+    </button>
 
-            init() {
-                // Preload all pages after initial page load
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', () => this.preloadAllPages());
-                } else {
-                    this.preloadAllPages();
-                }
-
-                // Intercept all navigation links
-                this.interceptNavigation();
-            }
-
-            async preloadAllPages() {
-                const pages = ['index.html', 'about.html', 'projects.html'];
-                
-                // Add small delay to not interfere with initial page load
-                setTimeout(async () => {
-                    for (const page of pages) {
-                        await this.preloadPage(page);
-                    }
-                }, 100);
-            }
-
-            async preloadPage(url) {
-                if (this.preloadedPages.has(url)) return;
-
-                try {
-                    const response = await fetch(url);
-                    if (response.ok) {
-                        const html = await response.text();
-                        this.cache.set(url, html);
-                        this.preloadedPages.add(url);
-                        console.log(`✅ Preloaded: ${url}`);
-                    }
-                } catch (error) {
-                    console.log(`⚠️ Failed to preload: ${url}`, error);
-                }
-            }
-
-            interceptNavigation() {
-                // Intercept all clicks on navigation links
-                document.addEventListener('click', (e) => {
-                    const link = e.target.closest('a[href]');
-                    if (!link) return;
-
-                    const href = link.getAttribute('href');
-                    
-                    // Only handle internal HTML pages
-                    if (href && href.endsWith('.html') && !href.startsWith('http')) {
-                        e.preventDefault();
-                        this.navigateToPage(href);
-                    }
-                });
-            }
-
-            navigateToPage(url) {
-                // Update URL without triggering reload
-                history.pushState(null, '', url);
-                
-                if (this.cache.has(url)) {
-                    // Use cached version for instant navigation
-                    this.loadCachedPage(url);
-                } else {
-                    // Fallback to normal navigation
-                    window.location.href = url;
-                }
-            }
-
-            loadCachedPage(url) {
-                const cachedHtml = this.cache.get(url);
-                
-                // Add smooth transition
-                document.body.style.opacity = '0.7';
-                document.body.style.transform = 'scale(0.98)';
-                
-                setTimeout(() => {
-                    // Replace page content
-                    document.documentElement.innerHTML = cachedHtml;
-                    
-                    // Reinitialize the cache system on new page
-                    new PageCache();
-                    
-                    // Load saved theme
-                    const savedTheme = localStorage.getItem('theme') || 'light';
-                    document.documentElement.setAttribute('data-theme', savedTheme);
-                    
-                    // Smooth fade in
-                    document.body.style.opacity = '1';
-                    document.body.style.transform = 'scale(1)';
-                }, 100);
-            }
-        }
-
-        // Initialize page caching system
-        const pageCache = new PageCache();
-
-        // Dark mode functionality
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-
-        // Load saved theme on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        });
-    </script>
+    <!-- Component Scripts -->
+    <script src="components/navbar.js"></script>
+    <script src="components/button.js"></script>
+    <script src="scripts/common.js"></script>
 </body>
 </html>
